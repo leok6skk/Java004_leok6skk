@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS `product`;
 DROP TABLE IF EXISTS `taste`;
 DROP TABLE IF EXISTS `package`;
+DROP TABLE IF EXISTS `Product_Taste_Package`;
 DROP TABLE IF EXISTS `composition`;
 DROP TABLE IF EXISTS `Supplier`;
 DROP TABLE IF EXISTS `Customer`;
