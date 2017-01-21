@@ -15,18 +15,10 @@ public class PlaceMain {
 	public static void main(String[] args) {
 		// 
 		BeanDAO dao = new BeanDAO();
-//		BeanObject Place = new BeanObject(
-//				"place"
-//				,new String[]{"placeId","typeId","name"   ,"phone"  ,"address","longitude","latitude","link"   ,"filename","picture" ,"comment"}
-//				,new String[]{"int"    ,"int"   ,"varchar","varchar","varchar","double"   ,"double"  ,"varchar","varchar" ,"longblob","longtext "}
-//				,new int[]{11       ,11      ,255      ,255      ,255      ,0          ,0         ,255      ,255       ,0         ,0}
-//				,new Boolean[]{true     ,false  ,false    ,false   ,false    ,false     ,false     ,false    ,false     ,false    ,false}
-//				,new Boolean[]{true     ,false  ,false    ,false   ,false    ,false     ,false     ,false    ,false     ,false    ,false}
-//				,new String[]{""       ,"null"  ,"null"   ,"null"   ,"null"   ,"null"     ,"null"    ,"null"    ,"null"    ,""       ,""}
-//				,"placeId"
-//				);
+
 		PlaceBean Place = new PlaceBean();
         dao.createTables(Place);
+        
 		insertPlace("PlaceData.csv","BIG5");    
 		PlaceBean pb = (PlaceBean)dao.findByPrimaryKey(Place, new Object[]{5});
 		if (pb!= null){

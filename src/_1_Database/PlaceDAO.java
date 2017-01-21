@@ -56,6 +56,12 @@ public class PlaceDAO {
 			ex.printStackTrace();
 		}
 	}
+	
+	public void insertInto(){
+		
+		String[] insertStr = readSQLFile("dropPlace.sql");
+		
+	}
 
 	private String[] readSQLFile(String filename) {
 
@@ -81,4 +87,6 @@ public class PlaceDAO {
 		}
 		return null;
 	}
+	
+	
 }
