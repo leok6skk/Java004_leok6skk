@@ -1,4 +1,4 @@
-CREATE TABLE `product` (
+CREATE TABLE `Product` (
   `product_id` 	varchar(20) NOT NULL,
   `P_G_price` 		int(10) DEFAULT NULL,
   `Name` 		varchar(60) DEFAULT NULL,
@@ -7,28 +7,42 @@ CREATE TABLE `product` (
   `S_life` 		    int(10) DEFAULT NULL,
   `Suppier_id` 	    char(4) DEFAULT NULL,
 	PRIMARY KEY (`product_Id`)
-) ENGINE=InnoDB ;
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE `taste` (
+CREATE TABLE `Taste` (
   `Taste_id` 	varchar(4) NOT NULL,
   `Taste_Name` 	varchar(60) DEFAULT NULL,
 	PRIMARY KEY (`Taste_id`)
-) ENGINE=InnoDB ;
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
-CREATE TABLE `package` (
-  `Id` 	    varchar(20) NOT NULL,
-  `Name` 	varchar(60) DEFAULT NULL,
+CREATE TABLE `Package` (
+  `Package_id` 	    varchar(20) NOT NULL,
+  `Description` 	varchar(60) DEFAULT NULL,
   `Spread` 	    int(10) DEFAULT NULL,
-	PRIMARY KEY (`id`)
-) ENGINE=InnoDB ;
+	PRIMARY KEY (`Package_Id`)
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE `composition` (
+CREATE TABLE `Product_Taste_Package` (
+  `Product_id` 	    varchar(20) NOT NULL,
+  `Taste_id` 	    varchar(4)  NOT NULL,
+  `Package_id` 	    varchar(20) NOT NULL,
+  
+	CONSTRAINT P_T_P_Product_id_FK FOREIGN KEY (Product_id) 
+		REFERENCES Product(Product_id),
+	CONSTRAINT P_T_P_Taste_id_FK FOREIGN KEY (Taste_id) 
+		REFERENCES Taste(Taste_id),
+	CONSTRAINT P_T_P_Package_id_FK FOREIGN KEY (Package_id) 
+		REFERENCES Package(Package_id),
+	PRIMARY KEY (Product_id,Taste_id,Package_id)
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `Composition` (
   `Com_type`            char(1) NOT NULL,
   `Com_id` 	         varchar(4) DEFAULT NULL,
   `Com_description` varchar(60) DEFAULT NULL,
 	PRIMARY KEY (`Com_type`)
-) ENGINE=InnoDB ;
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `Supplier` (
   `Supplier_id`        char(4) NOT NULL,
@@ -42,7 +56,7 @@ CREATE TABLE `Supplier` (
   `Principal_Name` 	varchar(30) DEFAULT NULL,
   `Contact_Name` 	varchar(30) DEFAULT NULL,
 	PRIMARY KEY (`Supplier_id`)
-) ENGINE=InnoDB ;
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 CREATE TABLE `Customer` (
@@ -68,7 +82,7 @@ CREATE TABLE `Customer` (
   `Line` 	         varchar(30) DEFAULT NULL,
   `Skype` 			 varchar(30) DEFAULT NULL,
 	PRIMARY KEY (`Customer_id`)
-) ENGINE=InnoDB ;
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE Commission(
 
@@ -99,8 +113,7 @@ CREATE TABLE Commission(
 		REFERENCES Customer(Customer_id) ,
 	CONSTRAINT Commission_Commission_ID_PK PRIMARY KEY (Commission_ID)
 	
-)	ENGINE = INNODB;
-
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 CREATE TABLE Warehouse(
@@ -121,7 +134,7 @@ CREATE TABLE Warehouse(
 		REFERENCES Product(Product_ID) ,
 	CONSTRAINT Warehouse_W_ID_PK PRIMARY KEY (W_ID)
 
-);
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 
@@ -138,7 +151,7 @@ CREATE TABLE StockUpdate(
 	Net_Stock       INT,
 	
 	CONSTRAINT StockUpdate_CP_ID_PK PRIMARY KEY (CP_ID)
-);
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 CREATE TABLE TRHD(
@@ -159,7 +172,7 @@ CREATE TABLE TRHD(
 	TO_Cost			NUMERIC (15,2),
 	TO_Disc			NUMERIC	(6,4)
 	
-);
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 CREATE TABLE TRDT(
@@ -201,7 +214,7 @@ CREATE TABLE TRDT(
 	CONSTRAINT TRDT_M_ID_FK FOREIGN KEY (M_ID) 
 		REFERENCES Member(M_ID) 
 	
-);
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 
@@ -231,6 +244,7 @@ CREATE TABLE Member(
 	CONSTRAINT Member_M_ID_PK PRIMARY KEY (M_ID)
 	
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 
 
 
