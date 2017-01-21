@@ -120,7 +120,7 @@ CREATE TABLE Warehouse(
 	
 	W_ID 			INT AUTO_INCREMENT,
 	Customer_id		CHAR(4),		
-	Product_ID		VARCHAR(20),
+	P_T_P_id		VARCHAR(20),
 	Stock			INT,			
 	AC_REC			INT,			
 	AC_RET			INT,			
@@ -130,8 +130,7 @@ CREATE TABLE Warehouse(
 	
 	CONSTRAINT Warehouse_Customer_ID_FK FOREIGN KEY (Customer_id) 
 		REFERENCES Customer(Customer_id) ,
-	CONSTRAINT Warehouse_Product_ID_FK FOREIGN KEY (Product_ID) 
-		REFERENCES Product(Product_ID) ,
+	
 	CONSTRAINT Warehouse_W_ID_PK PRIMARY KEY (W_ID)
 
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -185,7 +184,7 @@ CREATE TABLE TRDT(
 	MIN_Role		CHAR(4),
 	TR_Date			DATETIME,
 	
-	Product_ID		VARCHAR(20),
+	P_T_P_id		VARCHAR(20),
 	SEQ_NO			INT,	
 	TR_QTY			INT,
 	TR_List			NUMERIC (15,2),
@@ -213,6 +212,7 @@ CREATE TABLE TRDT(
 	
 	CONSTRAINT TRDT_M_ID_FK FOREIGN KEY (M_ID) 
 		REFERENCES Member(M_ID) 
+	
 	
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
@@ -246,5 +246,30 @@ CREATE TABLE Member(
 )	CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
+CREATE TABLE ORD
+(
+ ORD_ID                INT NOT NULL AUTO_INCREMENT,
+ ORDERDATE            DATETIME,
+ COMMPLAN             CHAR (1),
+ CUSTID               INT NOT NULL,
+ SHIPDATE             DATETIME,
+ TOTAL                NUMERIC (15,2) ,
+ 
+ CONSTRAINT ORD_ORD_ID_PK PRIMARY KEY (ORD_ID),
+ CONSTRAINT ORD_TOTAL_CK CHECK (TOTAL >= 0)
+) AUTO_INCREMENT = 601;
+
+CREATE TABLE Ord_Detail
+(
+ Ord_Detail_ID       INT NOT NULL,
+ ORD_ID              INT NOT NULL,
+ P_T_P_id            VARCHAR(20) ,
+ ACTUALPRICE         NUMERIC (15,2),
+ QTY                 NUMERIC (15),
+ Total               NUMERIC (15,2)
+ 
+ 
+
+)ENGINE = INNODB;
 
 
