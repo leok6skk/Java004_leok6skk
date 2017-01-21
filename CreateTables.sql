@@ -18,7 +18,7 @@ CREATE TABLE `Taste` (
 
 CREATE TABLE `Package` (
   `Package_id` 	    varchar(20) NOT NULL,
-  `Name` 	varchar(60) DEFAULT NULL,
+  `Description` 	varchar(60) DEFAULT NULL,
   `Spread` 	    int(10) DEFAULT NULL,
 	PRIMARY KEY (`Package_Id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
