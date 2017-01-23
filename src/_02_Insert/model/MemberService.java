@@ -1,4 +1,4 @@
-﻿package _2_Insert.model;
+﻿package _02_Insert.model;
 import java.io.* ; 
 import java.util.ArrayList;
 import java.util.List;

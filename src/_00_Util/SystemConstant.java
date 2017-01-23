@@ -1,4 +1,4 @@
-package _0_Util;
+package _00_Util;
 
 public class SystemConstant {    
     public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver"; 

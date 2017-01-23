@@ -1,4 +1,4 @@
-package _1_Database;
+package _01_Database;
 
 import java.io.BufferedReader;
 import java.io.CharArrayWriter;
@@ -18,8 +18,8 @@ import java.util.List;
 
 import javax.sql.rowset.serial.SerialClob;
 
-import _0_Util.PlaceBean;
-import _0_Util.SystemConstant;
+import _00_Util.PlaceBean;
+import _00_Util.SystemConstant;
 
 public class PlaceDAO {
 	String dbURL = SystemConstant.URL + "?user=" + SystemConstant.USER + "&password=" + SystemConstant.PASSWORD

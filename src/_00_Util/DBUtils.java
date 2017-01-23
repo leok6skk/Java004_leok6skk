@@ -1,4 +1,4 @@
-package _0_Util;
+package _00_Util;
 
 import java.io.BufferedReader;
 import java.io.CharArrayWriter;
@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
-import _0_Util.PlaceBean;
+import _00_Util.PlaceBean;
 
 public class DBUtils {
 	public static char[] fileToChars(String filename, String encoding) {

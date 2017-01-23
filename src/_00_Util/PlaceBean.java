@@ -1,6 +1,6 @@
-package _0_Util;
+package _00_Util;
 
-import _0_Util.BeanObject;
+import _00_Util.BeanObject;
 
 public class PlaceBean extends BeanObject {
 

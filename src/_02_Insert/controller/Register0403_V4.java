@@ -1,4 +1,4 @@
-﻿package _2_Insert.controller;
+﻿package _02_Insert.controller;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
@@ -7,7 +7,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import _2_Insert.model.*;
+import _02_Insert.model.*;
 @WebServlet("_2_Insert/controller/register0403_v4.do")
 public class Register0403_V4 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
